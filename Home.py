@@ -76,7 +76,7 @@ def main():
     /* Overall App Styling */
     body {
         font-family: 'Arial', sans-serif;
-        background-color: #f9f9f9;  /* Light grey background */
+        background-color: #ecf0f5;  /* Light blue with clouds background */
         color: #333333;  /* Dark grey text color */
         line-height: 1.6;
     }
@@ -91,7 +91,7 @@ def main():
     /* Title Styling */
     .title {
         text-align: center;
-        font-size: 55px;
+        font-size: 65px;  /* Bigger font size */
         font-weight: bold;
         margin-bottom: 20px;
         color: #333333;  /* Dark grey color */
@@ -111,7 +111,7 @@ def main():
     /* Form and Input Styling */
     .stRadio .label {
         font-size: 20px;
-        color: #161616;  /* Dark grey color */
+        color: #333333;  /* Dark grey color */
     }
     .stTextInput input {
         border-radius: 5px;
@@ -120,15 +120,15 @@ def main():
 
     /* Button Styling */
     .stButton button {
-        background-color: #FFA500;  /* Orange button background */
-        color: #161616  /* Black text color */
+        background-color: #4fb2cf;  /* Light blue button background */
+        color: #ffffff;  /* White text color */
         border-radius: 5px;
         border: none;
         padding: 10px 20px;
         cursor: pointer;
     }
     .stButton button:hover {
-        background-color: #ff5722;  /* Darker orange on hover */
+        background-color: #3a99b5;  /* Slightly darker blue on hover */
     }
 
     /* Image Styling */
