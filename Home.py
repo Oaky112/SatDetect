@@ -1,11 +1,9 @@
 import streamlit as st  # type: ignore
 import cv2
 from ultralytics import YOLO
-import requests # type: ignore
+import requests  # type: ignore
 from PIL import Image
 import os
-from glob import glob
-from numpy import random
 import io
 
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
@@ -67,49 +65,100 @@ def predict_image(model, image, conf_threshold, iou_threshold):
 def main():
     # Set Streamlit page configuration
     st.set_page_config(
-        page_title="Satelitte Wildfire Detection",
+        page_title="Satellite Wildfire Detection",
         page_icon="🌎",
         initial_sidebar_state="collapsed",
     )
-    
-    # Sidebar information
-    st.sidebar.markdown("Developed by Oaky112")
-    
-    # Custom CSS for background
+
+    # Custom CSS and Background Image
     custom_css = """
-    .stApp > header {
-        background-color: transparent;
+    <style>
+    /* Overall App Styling */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f9f9f9;  /* Light grey background */
+        color: #333333;  /* Dark grey text color */
+        line-height: 1.6;
     }
 
+    /* Page Container */
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Title Styling */
+    .title {
+        text-align: center;
+        font-size: 35px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #333333;  /* Dark grey color */
+    }
+
+    /* Sidebar Styling */
+    .sidebar .sidebar-content {
+        background-color: #ffffff;  /* White sidebar background */
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);  /* Sidebar shadow effect */
+        padding: 20px;
+        border-radius: 5px;
+    }
+    .sidebar .sidebar-content .sidebar-close-button {
+        color: #666666;  /* Grey color for sidebar close button */
+    }
+
+    /* Form and Input Styling */
+    .stRadio .label {
+        font-size: 16px;
+        color: #333333;  /* Dark grey color */
+    }
+    .stTextInput input {
+        border-radius: 5px;
+        border: 1px solid #cccccc;  /* Light grey border */
+    }
+
+    /* Button Styling */
+    .stButton button {
+        background-color: #FFA500;  /* Orange button background */
+        color: #ffffff;  /* White text color */
+        border-radius: 5px;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+    .stButton button:hover {
+        background-color: #ff5722;  /* Darker orange on hover */
+    }
+
+    /* Image Styling */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Error Message Styling */
+    .error-message {
+        color: #ff0000;  /* Red error text color */
+    }
+
+    /* Background Image */
     .stApp {
         margin: auto;
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         overflow: auto;
-        background: linear-gradient(315deg, #4f2991 3%, #7dc4ff 38%, #36cfcc 68%, #a92ed3 98%);
-        animation: gradient 15s ease infinite;
-        background-size: 400% 400%;
-        background-attachment: fixed;
+        background-image: url('https://www.turing.ac.uk/sites/default/files/2020-06/cloud_masks.jpg'); 
+        background-size: cover; /* Adjust as needed */
+        background-repeat: no-repeat; /* Adjust as needed */
+        background-position: center; /* Adjust as needed */
     }
-
-    @keyframes gradient {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
+    </style>
     """
 
-    # Apply custom CSS
-    st.markdown(f'<style>{custom_css}</style>', unsafe_allow_html=True)
+    st.markdown(custom_css, unsafe_allow_html=True)
 
     # App title
-    st.markdown("<div class='title'>Satelitte Wildfire Detection</div>", unsafe_allow_html=True)
-
+    st.markdown("<div class='title'>Satellite Wildfire Detection</div>", unsafe_allow_html=True)
 
     # Model selection
     model_type = st.radio("Select Model Type", ("Fire Detection", "General"), index=0)
@@ -155,7 +204,7 @@ def main():
             prediction, text = predict_image(model, image, conf_threshold, iou_threshold)
             st.image(prediction, caption="Prediction", use_column_width=True)
             st.success(text)
-        
+            
         prediction = Image.fromarray(prediction)
 
         # Create a BytesIO object to temporarily store the image data
@@ -168,10 +217,12 @@ def main():
         st.download_button(
             label='Download Prediction',
             data=image_buffer.getvalue(),
-            file_name='prediciton.png',
+            file_name='prediction.png',
             mime='image/png'
         )
 
-        
 if __name__ == "__main__":
     main()
+
+        
+       
