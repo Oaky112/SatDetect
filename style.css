@@ -1,0 +1,72 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('images/cloud_masks.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Arial', sans-serif; /* Use a professional font */
+}
+
+#upload-container {
+    text-align: center;
+    padding: 20px; /* Increase padding for a more spacious look */
+    background: rgba(255, 255, 255, 0.9); /* Slightly increase opacity for better readability */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+#image-box {
+    width: 100%;
+    height: 400px; /* Increase height for a more prominent image box */
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+}
+
+#imagePreview {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.upload-label {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #3498db; /* Use a professional blue color */
+    color: #fff;
+    font-size: 1.2em; /* Increase font size for better visibility */
+    transition: background-color 0.4s, color 0.4s;
+    cursor: pointer;
+    border: 2px solid #2980b9; /* Slightly darker border color */
+    border-radius: 5px;
+    margin: 10px 5px; /* Increase margin for better spacing */
+}
+
+.upload-label:hover {
+    background: #2980b9; /* Darker blue on hover */
+    color: #fff;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.loader {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#result {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #2ecc71; /* Use a professional green color for success messages */
+}

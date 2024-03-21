@@ -75,50 +75,44 @@ def main():
     st.sidebar.markdown("Developed by Joshua Oakman")
     
 
-    # Set custom CSS styles
-    st.markdown(
-        """
-        <style>
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+    # Custom CSS for background
+    custom_css = """
+    .stApp > header {
+        background-color: transparent;
+    }
+
+    .stApp {
+        margin: auto;
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        overflow: auto;
+        background: linear-gradient(315deg, #4f2991 3%, #7dc4ff 38%, #36cfcc 68%, #a92ed3 98%);
+        animation: gradient 15s ease infinite;
+        background-size: 400% 400%;
+        background-attachment: fixed;
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
         }
-        .title {
-            text-align: center;
-            font-size: 35px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #333333;  /* Dark grey color */
+        50% {
+            background-position: 100% 50%;
         }
-        .description {
-            margin-bottom: 30px;
-            color: #666666;  /* Light grey color */
-            font-size: 16px;
-            line-height: 1.5;
+        100% {
+            background-position: 0% 50%;
         }
-        .instructions {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #f5f5f5;  /* Light grey background */
-            border-radius: 5px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);  /* Shadow effect */
-        }
-        .highlight {
-            color: #FFA500;  /* Orange color */
-            font-weight: bold;
-        }
-        .sidebar .sidebar-content {
-            background-color: #f9f9f9;  /* Light grey sidebar background */
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);  /* Sidebar shadow effect */
-        }
-        .sidebar .sidebar-content .sidebar-close-button {
-            color: #666666;  /* Grey color for sidebar close button */
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+    }
+    """
+
+    with open('style.css') as f:
+        custom_css = f.read()
+
+    # Apply custom CSS
+    st.markdown(f'<style>{custom_css}</style>', unsafe_allow_html=True)
+    
+     # Logo image
+    logo_img = Image.open("fire.png")
+    st.image(logo_img, use_column_width=True)
 
     # App title
     st.markdown("<div class='title'>Satelitte Fire Detection</div>", unsafe_allow_html=True)
