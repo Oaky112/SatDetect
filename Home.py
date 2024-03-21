@@ -91,7 +91,7 @@ def main():
     /* Title Styling */
     .title {
         text-align: center;
-        font-size: 35px;
+        font-size: 55px;
         font-weight: bold;
         margin-bottom: 20px;
         color: #333333;  /* Dark grey color */
@@ -110,8 +110,8 @@ def main():
 
     /* Form and Input Styling */
     .stRadio .label {
-        font-size: 16px;
-        color: #333333;  /* Dark grey color */
+        font-size: 20px;
+        color: #161616;  /* Dark grey color */
     }
     .stTextInput input {
         border-radius: 5px;
@@ -121,7 +121,7 @@ def main():
     /* Button Styling */
     .stButton button {
         background-color: #FFA500;  /* Orange button background */
-        color: #ffffff;  /* White text color */
+        color: #161616  /* Black text color */
         border-radius: 5px;
         border: none;
         padding: 10px 20px;
