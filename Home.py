@@ -16,6 +16,10 @@ def load_model(model_path):
     model = YOLO(model_path)
     return model
 
+# Set confidence and IOU thresholds
+conf_threshold = 0.20  # Static confidence threshold
+iou_threshold = 0.5    # Static IOU threshold
+
 # Function to predict objects in the image
 def predict_image(model, image, conf_threshold, iou_threshold):
     # Predict objects using the model
@@ -77,64 +81,60 @@ def main():
         <style>
         .container {
             max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
         }
         .title {
             text-align: center;
             font-size: 35px;
             font-weight: bold;
-            margin-bottom: 10px;
-            color: #333333;  /* Greyish color */
+            margin-bottom: 20px;
+            color: #333333;  /* Dark grey color */
         }
         .description {
             margin-bottom: 30px;
-            color: #666666;  /* Darker grey color for description */
+            color: #666666;  /* Light grey color */
+            font-size: 16px;
+            line-height: 1.5;
         }
         .instructions {
             margin-bottom: 20px;
-            padding: 10px;
+            padding: 15px;
             background-color: #f5f5f5;  /* Light grey background */
             border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);  /* Shadow effect */
         }
         .highlight {
-            color: #FFA500;  /* Orange color for highlighting */
+            color: #FFA500;  /* Orange color */
             font-weight: bold;
+        }
+        .sidebar .sidebar-content {
+            background-color: #f9f9f9;  /* Light grey sidebar background */
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);  /* Sidebar shadow effect */
+        }
+        .sidebar .sidebar-content .sidebar-close-button {
+            color: #666666;  /* Grey color for sidebar close button */
         }
         </style>
         """,
         unsafe_allow_html=True
-)
-
+    )
 
     # App title
     st.markdown("<div class='title'>Satelitte Fire Detection</div>", unsafe_allow_html=True)
 
-    # Logo and description
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col1:
-        st.write("")
-    with col2:
-        logos = glob('fire.jpg')
-    with col3:
-        st.write("")
 
     # Model selection
-    col1, col2 = st.columns(2)
-    with col1:
-        model_type = st.radio("Select Model Type", ("Fire Detection", "General"), index=0)
+    model_type = st.radio("Select Model Type", ("Fire Detection", "General"), index=0)
 
     models_dir = "general-models" if model_type == "General" else "fire-models"
     model_files = [f.replace(".pt", "") for f in os.listdir(models_dir) if f.endswith(".pt")]
     
-    with col2:
-        selected_model = st.selectbox("Select Model Size", sorted(model_files), index=2)
-
+    selected_model = st.selectbox("Select Model Size", sorted(model_files), index=2)
 
     # Load the selected model
     model_path = os.path.join(models_dir, selected_model + ".pt") #type: ignore
     model = load_model(model_path)
-
-    # Add a section divider
-    st.markdown("---")
 
     # Image selection
     image = None
@@ -165,7 +165,7 @@ def main():
     if image:
         # Display the uploaded image
         with st.spinner("Detecting"):
-            prediction, text = predict_image(model, image)
+            prediction, text = predict_image(model, image, conf_threshold, iou_threshold)
             st.image(prediction, caption="Prediction", use_column_width=True)
             st.success(text)
         
