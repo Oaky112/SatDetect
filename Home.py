@@ -74,6 +74,38 @@ def main():
     
     # Sidebar information
     st.sidebar.markdown("Developed by Oaky112")
+    
+    # Custom CSS for background
+    custom_css = """
+    .stApp > header {
+        background-color: transparent;
+    }
+
+    .stApp {
+        margin: auto;
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        overflow: auto;
+        background: linear-gradient(315deg, #4f2991 3%, #7dc4ff 38%, #36cfcc 68%, #a92ed3 98%);
+        animation: gradient 15s ease infinite;
+        background-size: 400% 400%;
+        background-attachment: fixed;
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    """
+
+    # Apply custom CSS
+    st.markdown(f'<style>{custom_css}</style>', unsafe_allow_html=True)
 
     # App title
     st.markdown("<div class='title'>Satelitte Wildfire Detection</div>", unsafe_allow_html=True)
