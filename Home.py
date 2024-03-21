@@ -174,39 +174,29 @@ def main():
 
     # Image selection
     image = None
+    image_source = st.radio("Select image source:", ("Enter URL", "Upload from Computer"))
+    if image_source == "Upload from Computer":
+        # File uploader for image
+        uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
+        if uploaded_file is not None:
+            image = Image.open(uploaded_file)
+        else:
+            image = None
 
-    # File uploader for image (Upload from Computer option)
-    uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
-    if uploaded_file is not None:
-        image = Image.open(uploaded_file)
-
-    # Input box for image URL (Enter URL option)
-    url = st.text_input("Enter the image URL:")
-    if url:
-        try:
-            response = requests.get(url, stream=True)
-            if response.status_code == 200:
-                image = Image.open(response.raw)
-            else:
-                st.error("Error loading image from URL.")
-        except requests.exceptions.RequestException as e:
-            st.error(f"Error loading image from URL: {e}")
-
-    # Select image source (Radio button)
-    image_source = st.radio("Select image source:", ("Upload from Computer", "Enter URL"))
-
-    # Ensure the image source option selected matches the current image availability
-    if image_source == "Enter URL" and image is not None:
-        image = None
-    elif image_source == "Upload from Computer" and url:
-        url = ""
-
-    # Proceed with image processing if an image is available
-    if image is not None:
-        # Process the image here
-        st.image(image, caption="Uploaded Image", use_column_width=True)
-        st.success("Image uploaded successfully!")
-
+    else:
+        # Input box for image URL
+        url = st.text_input("Enter the image URL:")
+        if url:
+            try:
+                response = requests.get(url, stream=True)
+                if response.status_code == 200:
+                    image = Image.open(response.raw)
+                else:
+                    st.error("Error loading image from URL.")
+                    image = None
+            except requests.exceptions.RequestException as e:
+                st.error(f"Error loading image from URL: {e}")
+                image = None
 
     if image:
         # Display the uploaded image
