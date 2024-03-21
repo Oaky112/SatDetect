@@ -6,7 +6,31 @@ from PIL import Image
 import os
 from glob import glob
 from numpy import random
+import base64
 import io
+
+
+@st.cache(allow_output_mutation=True)
+def get_base64_of_bin_file(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+def set_png_as_page_bg(png_file):
+    bin_str = get_base64_of_bin_file(png_file)
+    page_bg_img = '''
+    <style>
+    body {
+    background-image: url("data:image/png;base64,%s");
+    background-size: cover;
+    }
+    </style>
+    ''' % bin_str
+    
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+    return
+
+set_png_as_page_bg('cloud_masks.png')
 
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
@@ -68,47 +92,15 @@ def main():
     # Set Streamlit page configuration
     st.set_page_config(
         page_title="Satelitte Wildfire Detection",
+        page_icon="🌎",
         initial_sidebar_state="collapsed",
     )
     
     # Sidebar information
-    st.sidebar.markdown("Developed by Joshua Oakman")
-    
-
-    # Custom CSS for background
-    custom_css = """
-    .stApp > header {
-        background-color: transparent;
-    }
-
-    .stApp {
-        margin: auto;
-        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-        overflow: auto;
-        background: linear-gradient(315deg, #4f2991 3%, #7dc4ff 38%, #36cfcc 68%, #a92ed3 98%);
-        animation: gradient 15s ease infinite;
-        background-size: 400% 400%;
-        background-attachment: fixed;
-    }
-
-    @keyframes gradient {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-    """
-
-    # Apply custom CSS
-    st.markdown(f'<style>{custom_css}</style>', unsafe_allow_html=True)
+    st.sidebar.markdown("Developed by Oaky112")
 
     # App title
-    st.markdown("<div class='title'>Satelitte Fire Detection</div>", unsafe_allow_html=True)
+    st.markdown("<div class='title'>Satelitte Wildfire Detection</div>", unsafe_allow_html=True)
 
 
     # Model selection
