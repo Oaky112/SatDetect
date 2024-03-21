@@ -104,15 +104,8 @@ def main():
     }
     """
 
-    with open('style.css') as f:
-        custom_css = f.read()
-
     # Apply custom CSS
     st.markdown(f'<style>{custom_css}</style>', unsafe_allow_html=True)
-    
-     # Logo image
-    logo_img = Image.open("fire.png")
-    st.image(logo_img, use_column_width=True)
 
     # App title
     st.markdown("<div class='title'>Satelitte Fire Detection</div>", unsafe_allow_html=True)
