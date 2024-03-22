@@ -91,7 +91,7 @@ def main():
     /* Title Styling */
     .title {
         text-align: center;
-        font-size: 75px;  /* Bigger font size */
+        font-size: 90px;  /* Bigger font size */
         font-weight: bold;
         margin-bottom: 20px;
         color: #ffffff;  /* White color */
@@ -158,7 +158,7 @@ def main():
     st.markdown(custom_css, unsafe_allow_html=True)
 
     # App title
-    st.markdown("<span style='font-weight:bold;'>Satellite Wildfire Detection App</span>", unsafe_allow_html=True)
+    st.markdown("<div class='title'><strong>Satelittle Wildfire Detection App</strong></div>", unsafe_allow_html=True)
     
 
     st.markdown(
