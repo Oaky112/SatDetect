@@ -160,7 +160,7 @@ def main():
         margin: auto;
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         overflow: auto;
-        background-image: url('https://mrwallpaper.com/images/hd/download-firewatch-wallpaper-ervaypm7906b8op2.jpg'); 
+        background-image: url('https://erepublic.brightspotcdn.com/dims4/default/9ed746e/2147483647/strip/true/crop/940x490+0+68/resize/840x438!/quality/90/?url=http%3A%2F%2Ferepublic-brightspot.s3.us-west-2.amazonaws.com%2F43%2F9b%2F7bb97fa0827970f3e971a379605f%2Fshutterstock-1810018291.jpg'); 
         background-size: 140% auto; /* Change size as needed *
         background-repeat: no-repeat; /* Adjust as needed */
         background-position: center -55%; /* Adjust as needed */
@@ -216,7 +216,7 @@ def main():
     image = None
 
     if image_source == "Upload from Computer":
-        uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
+        uploaded_file = st.file_uploader("Upload an image/video", type=["png", "jpg", "jpeg"])
         if uploaded_file is not None:
             image = Image.open(uploaded_file)
     elif image_source == "Enter URL":
