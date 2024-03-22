@@ -151,6 +151,7 @@ def main():
         background-size: 140% auto; /* Change size as needed *
         background-repeat: no-repeat; /* Adjust as needed */
         background-position: center -55%; /* Adjust as needed */
+        background-attachment: fixed; 
     }
     </style>
     """
