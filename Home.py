@@ -170,7 +170,7 @@ def main():
             </div>
 
             <div style='text-align: justify;'>
-                <h3>Mission and How it Works</h3>
+                <h3 style="text-decoration: underline;">Mission and How it Works</h3>
                 <p>Developed for my 4th year honors project.</p>
                 <p>The app utilizes two key models:</p>
                 <ul>
