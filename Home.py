@@ -199,16 +199,21 @@ def main():
         )
 
 
-    # Model selection
-    model_type = st.radio("Select Model Type", ("Fire Detection", "General"), index=0)
+    model_type = st.radio("Select Model Type", ("SCSF", "fire-models", "general"), index=0)
 
-    models_dir = "general-models" if model_type == "General" else "fire-models"
+    if model_type == "d-fire_models":
+        models_dir = "fire-models"
+    elif model_type == "Sat, Cloud, Smoke and Fire":
+        models_dir = "scsf-models"
+    else:
+        models_dir = "general-models"
+
     model_files = [f.replace(".pt", "") for f in os.listdir(models_dir) if f.endswith(".pt")]
-    
+
     selected_model = st.selectbox("Select Model Size", sorted(model_files), index=2)
 
     # Load the selected model
-    model_path = os.path.join(models_dir, selected_model + ".pt") #type: ignore
+    model_path = os.path.join(models_dir, selected_model + ".pt")
     model = load_model(model_path)
 
     # Image selection
