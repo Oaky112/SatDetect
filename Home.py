@@ -91,10 +91,10 @@ def main():
     /* Title Styling */
     .title {
         text-align: center;
-        font-size: 65px;  /* Bigger font size */
+        font-size: 75px;  /* Bigger font size */
         font-weight: bold;
         margin-bottom: 20px;
-        color: #333333;  /* Dark grey color */
+        color: #ffffff;  /* White color */
     }
 
     /* Sidebar Styling */
@@ -147,7 +147,7 @@ def main():
         margin: auto;
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         overflow: auto;
-        background-image: url('https://www.air-worldwide.com/siteassets/airimages/models/wildfire/wildfirerisk_header.jpg'); 
+        background-image: url('https://images.unsplash.com/photo-1622969309378-d8f04f392fb0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGZvcmVzdCUyMGZpcmV8ZW58MHx8MHx8fDA%3D'); 
         background-size: cover; /* Adjust as needed */
         background-repeat: no-repeat; /* Adjust as needed */
         background-position: center; /* Adjust as needed */
@@ -159,6 +159,25 @@ def main():
 
     # App title
     st.markdown("<div class='title'>Satellite Wildfire Detection</div>", unsafe_allow_html=True)
+    
+    # Header and mission details
+    st.markdown(
+        """
+        <div style='text-align: center; color: #ffffff;'>
+            <h2><strong>Satellite Wildfire Detection App</strong></h2>
+            <p>Developed for an honors project.</p>
+            <h3><strong>Mission and How it Works</strong></h3>
+            <p>Our mission is to leverage satellite imagery and machine learning algorithms to monitor vast areas, identify potential wildfire outbreaks, and facilitate rapid response and mitigation efforts.</p>
+            <p>The app utilizes two key models:</p>
+            <ul>
+                <li><strong>Fire-Detection Model:</strong> Trained using the D-Fire dataset, this model detects signs of wildfires in satellite images.</li>
+                <li><strong>YOLOv8 Model:</strong> A general-purpose object detection model used to identify various objects relevant to wildfire monitoring.</li>
+            </ul>
+            <p>Images for training are obtained by scraping Google Chrome, and the YOLOv8 model used is developed by Ultralytics, known for high-performance deep learning models.</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+)
 
     # Model selection
     model_type = st.radio("Select Model Type", ("Fire Detection", "General"), index=0)
