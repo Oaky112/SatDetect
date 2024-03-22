@@ -64,16 +64,37 @@ def predict_image(model, image, conf_threshold, iou_threshold):
 
 def capture_image():
     cap = cv2.VideoCapture(0)
+    permission_granted = False
+
+    # Check if webcam access permission is granted
     if not cap.isOpened():
-        st.error("Error: Unable to access the webcam.")
-        return None
-    ret, frame = cap.read()
-    cap.release()
-    if ret:
-        return cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        st.error("Error: Unable to access the webcam. Please grant webcam access permission.")
     else:
-        st.error("Error capturing image from webcam.")
-        return None
+        permission_granted = True
+
+    if permission_granted:
+        ret, frame = cap.read()
+        cap.release()
+        if ret:
+            return cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        else:
+            st.error("Error capturing image from webcam.")
+            return None
+class VideoTransformer(VideoTransformerBase):
+    def __init__(self):
+        self.face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+
+    def transform(self, frame):
+        img = frame.to_ndarray(format="bgr24")
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        faces = self.face_cascade.detectMultiScale(gray, 1.3, 5)
+        
+        for (x, y, w, h) in faces:
+            cv2.rectangle(img, (x, y), (x + w, y + h), (95, 207, 30), 3)
+            cv2.rectangle(img, (x, y - 40), (x + w, y), (95, 207, 30), -1)
+            cv2.putText(img, 'Face', (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 0), 2)
+
+        return img
 
 def main():
     # Set Streamlit page configuration
