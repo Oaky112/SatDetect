@@ -147,7 +147,7 @@ def main():
         margin: auto;
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         overflow: auto;
-        background-image: url('https://www.turing.ac.uk/sites/default/files/2020-06/cloud_masks.jpg'); 
+        background-image: url('https://www.air-worldwide.com/siteassets/airimages/models/wildfire/wildfirerisk_header.jpg'); 
         background-size: cover; /* Adjust as needed */
         background-repeat: no-repeat; /* Adjust as needed */
         background-position: center; /* Adjust as needed */
