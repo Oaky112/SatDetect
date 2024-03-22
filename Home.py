@@ -62,6 +62,19 @@ def predict_image(model, image, conf_threshold, iou_threshold):
     
     return res_image, prediction_text
 
+def capture_image():
+    cap = cv2.VideoCapture(0)
+    if not cap.isOpened():
+        st.error("Error: Unable to access the webcam.")
+        return None
+    ret, frame = cap.read()
+    cap.release()
+    if ret:
+        return cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    else:
+        st.error("Error capturing image from webcam.")
+        return None
+
 def main():
     # Set Streamlit page configuration
     st.set_page_config(
@@ -199,18 +212,14 @@ def main():
     model = load_model(model_path)
 
     # Image selection
+    image_source = st.radio("Select image source:", ("Enter URL", "Upload from Computer", "Use Webcam"))
     image = None
-    image_source = st.radio("Select image source:", ("Enter URL", "Upload from Computer"))
+
     if image_source == "Upload from Computer":
-        # File uploader for image
         uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
         if uploaded_file is not None:
             image = Image.open(uploaded_file)
-        else:
-            image = None
-
-    else:
-        # Input box for image URL
+    elif image_source == "Enter URL":
         url = st.text_input("Enter the image URL:")
         if url:
             try:
@@ -219,33 +228,37 @@ def main():
                     image = Image.open(response.raw)
                 else:
                     st.error("Error loading image from URL.")
-                    image = None
             except requests.exceptions.RequestException as e:
                 st.error(f"Error loading image from URL: {e}")
-                image = None
+    elif image_source == "Use Webcam":
+        st.write("Click the button below to capture an image from your webcam.")
+        if st.button("Capture Image"):
+            image = capture_image()
+            if image is not None:
+                st.image(image, caption="Captured Image", use_column_width=True)
+            else:
+                st.error("Failed to capture image from webcam.")
 
-    if image:
+    if image is not None:
         # Display the uploaded image
-        with st.spinner("Detecting"):
+        with st.spinner("Detecting..."):
             prediction, text = predict_image(model, image, conf_threshold, iou_threshold)
             st.image(prediction, caption="Prediction", use_column_width=True)
             st.success(text)
-            
-        prediction = Image.fromarray(prediction)
 
-        # Create a BytesIO object to temporarily store the image data
-        image_buffer = io.BytesIO()
+            # Convert the result image to PNG format for download
+            prediction = Image.fromarray(prediction)
+            image_buffer = io.BytesIO()
+            prediction.save(image_buffer, format='PNG')
 
-        # Save the image to the BytesIO object in PNG format
-        prediction.save(image_buffer, format='PNG')
+            # Create a download button for the image
+            st.download_button(
+                label='Download Prediction',
+                data=image_buffer.getvalue(),
+                file_name='prediction.png',
+                mime='image/png'
+            )
 
-        # Create a download button for the image
-        st.download_button(
-            label='Download Prediction',
-            data=image_buffer.getvalue(),
-            file_name='prediction.png',
-            mime='image/png'
-        )
 
 if __name__ == "__main__":
     main()
