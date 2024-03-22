@@ -160,7 +160,7 @@ def main():
         margin: auto;
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         overflow: auto;
-        background-image: url('https://erepublic.brightspotcdn.com/dims4/default/9ed746e/2147483647/strip/true/crop/940x490+0+68/resize/840x438!/quality/90/?url=http%3A%2F%2Ferepublic-brightspot.s3.us-west-2.amazonaws.com%2F43%2F9b%2F7bb97fa0827970f3e971a379605f%2Fshutterstock-1810018291.jpg'); 
+        background-image: url('https://images5.alphacoders.com/133/1339453.png'); 
         background-size: 140% auto; /* Change size as needed *
         background-repeat: no-repeat; /* Adjust as needed */
         background-position: center -55%; /* Adjust as needed */
