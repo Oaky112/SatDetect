@@ -150,7 +150,7 @@ def main():
         background-image: url('https://mrwallpaper.com/images/hd/download-firewatch-wallpaper-ervaypm7906b8op2.jpg'); 
         background-size: 140% auto; /* Change size as needed *
         background-repeat: no-repeat; /* Adjust as needed */
-        background-position: center -50%; /* Adjust as needed */
+        background-position: center -55%; /* Adjust as needed */
     }
     </style>
     """
