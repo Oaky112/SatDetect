@@ -201,10 +201,10 @@ def main():
 
     model_type = st.radio("Select Model Type", ("SCSF", "fire-models", "general"), index=0)
 
-    if model_type == "d-fire_models":
-        models_dir = "fire-models"
-    elif model_type == "Sat, Cloud, Smoke and Fire":
+    if model_type == "SCSF":
         models_dir = "scsf-models"
+    elif model_type == "fire-models":
+        models_dir = "fire-models"
     else:
         models_dir = "general-models"
 
