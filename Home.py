@@ -160,7 +160,7 @@ def main():
         margin: auto;
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         overflow: auto;
-        background-image: url('https://img.freepik.com/premium-photo/fire-flames-black-background-abstract-blaze-fire-flame-texture-backgroundgenerative-ai_391052-20667.jpg'); 
+        background-image: url('https://mrwallpaper.com/images/hd/download-firewatch-wallpaper-ervaypm7906b8op2.jpg'); 
         background-size: 140% auto; /* Change size as needed *
         background-repeat: no-repeat; /* Adjust as needed */
         background-position: center -55%; /* Adjust as needed */
