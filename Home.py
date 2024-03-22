@@ -141,7 +141,7 @@ def main():
         cursor: pointer;
     }
     .stButton button:hover {
-        background-color: #3a99b5;  /* Slightly darker blue on hover */
+        background-color: #ff5722;
     }
 
     /* Image Styling */
