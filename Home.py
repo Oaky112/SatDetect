@@ -91,7 +91,7 @@ def main():
     /* Title Styling */
     .title {
         text-align: center;
-        font-size: 90px;  /* Bigger font size */
+        font-size: 75px;  /* Bigger font size */
         font-weight: bold;
         margin-bottom: 20px;
         color: #ffffff;  /* White color */
@@ -110,7 +110,7 @@ def main():
 
     /* Form and Input Styling */
     .stRadio .label {
-        font-size: 20px;
+        font-size: 14px;
         color: #333333;  /* Dark grey color */
     }
     .stTextInput input {
