@@ -148,7 +148,7 @@ def main():
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         overflow: auto;
         background-image: url('https://mrwallpaper.com/images/hd/download-firewatch-wallpaper-ervaypm7906b8op2.jpg'); 
-        background-size: 80% auto; /* Change size as needed *
+        background-size: 180% auto; /* Change size as needed *
         background-repeat: no-repeat; /* Adjust as needed */
         background-position: center 300%; /* Adjust as needed */
     }
