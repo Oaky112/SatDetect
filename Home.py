@@ -188,6 +188,7 @@ def main():
                 <p>The app utilizes two key models:</p>
                 <center>
                     <ul>
+                    <li><strong>SCSF Model:Created and trained a PyTorch model to detect satellite images containing clouds, fire, and smoke </strong>.</li>
                         <li><strong>Fire-Detection Model:</strong> Trained using the D-Fire dataset, this model detects signs of fire and smoke including my own created dataset of clouds and wildfires in satellite images.</li>
                         <li><strong>YOLOv8 Model:</strong> A general-purpose object detection model used to identify various objects relevant to wildfire monitoring.</li>
                     </ul>
