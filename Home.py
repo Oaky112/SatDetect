@@ -65,7 +65,7 @@ def predict_image(model, image, conf_threshold, iou_threshold):
 def main():
     # Set Streamlit page configuration
     st.set_page_config(
-        page_title="Satellite Wildfire Detection App",
+        page_title="SWDA",
         page_icon="🌎",
         initial_sidebar_state="collapsed",
     )
@@ -158,7 +158,7 @@ def main():
     st.markdown(custom_css, unsafe_allow_html=True)
 
     # App title
-    st.markdown("<div class='title'>Satellite Wildfire Detection</div>", unsafe_allow_html=True)
+    st.markdown("<div class='title'><trong>SATELLITE WILDFIRE DETECTION APP</strong></div>", unsafe_allow_html=True)
     
 
     st.markdown(
