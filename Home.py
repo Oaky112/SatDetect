@@ -147,7 +147,7 @@ def main():
         margin: auto;
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         overflow: auto;
-        background-image: url('https://img.freepik.com/premium-photo/abstract-color-gradient-background-film-grain-texture-blurred-orange-gray-white-free-forms-black-copy-space_284753-2252.jpg'); 
+        background-image: url('https://mrwallpaper.com/images/hd/download-firewatch-wallpaper-ervaypm7906b8op2.jpg'); 
         background-size: cover; /* Adjust as needed */
         background-repeat: no-repeat; /* Adjust as needed */
         background-position: center; /* Adjust as needed */
@@ -170,13 +170,15 @@ def main():
             </div>
 
             <div style='text-align: justify;'>
-                <h3 style="text-decoration: underline;">Mission and How it Works</h3>
+                <h3 style="text-decoration: underline;">My Mission and How it Works</h3>
                 <p>Developed for my 4th year honors project.</p>
                 <p>The app utilizes two key models:</p>
-                <ul>
-                    <li><strong>Fire-Detection Model:</strong> Trained using the D-Fire dataset, this model detects signs of fire and smoke including my own created dataset of clouds and wildfires in satellite images.</li>
-                    <li><strong>YOLOv8 Model:</strong> A general-purpose object detection model used to identify various objects relevant to wildfire monitoring.</li>
-                </ul>
+                <center>
+                    <ul>
+                        <li><strong>Fire-Detection Model:</strong> Trained using the D-Fire dataset, this model detects signs of fire and smoke including my own created dataset of clouds and wildfires in satellite images.</li>
+                        <li><strong>YOLOv8 Model:</strong> A general-purpose object detection model used to identify various objects relevant to wildfire monitoring.</li>
+                    </ul>
+                </center>
                 <p>Images for training were obtained by scraping Google Chrome and picking through the images that are relevant then annotation them on cvat, and the YOLOv8 model used is developed by Ultralytics, known for high-performance deep learning models.</p>
             </div>
             """,
