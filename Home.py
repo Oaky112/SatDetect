@@ -163,12 +163,13 @@ def main():
 
     st.markdown(
             """
-            <div style='text-align: justify;'>
+            <div style='text-align: center;'>
                 <center>
                 <h3><strong>Enhancing wildfire prediction and management through real-time computer vision</strong></h3>
                 </center>
-                <br>
-                
+            </div>
+
+            <div style='text-align: justify;'>
                 <h3>Mission and How it Works</h3>
                 <p>Developed for my 4th year honors project.</p>
                 <p>The app utilizes two key models:</p>
