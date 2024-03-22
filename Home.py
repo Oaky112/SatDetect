@@ -151,6 +151,7 @@ def main():
         background-size: cover; /* Adjust as needed */
         background-repeat: no-repeat; /* Adjust as needed */
         background-position: center; /* Adjust as needed */
+        filter: blur(5px)
     }
     </style>
     """
@@ -164,8 +165,9 @@ def main():
     st.markdown(
             """
             <div style='text-align: justify;'>
-                <h3><strong>Mission and How it Works</strong></h3>
-                <p>Our mission is to leverage satellite imagery and machine learning algorithms to monitor vast areas, identify potential wildfire outbreaks, and facilitate rapid response and mitigation efforts.</p>
+                <h2><strong>Enhancing wildfire prediction and management through real-time computer vision</strong></h2>
+                <h3>Mission and How it Works</h3>
+                <p>Developed for my 4th year honors project.</p>
                 <p>The app utilizes two key models:</p>
                 <ul>
                     <li><strong>Fire-Detection Model:</strong> Trained using the D-Fire dataset, this model detects signs of fire and smoke including my own created dataset of clouds and wildfires in satellite images.</li>
