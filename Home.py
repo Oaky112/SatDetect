@@ -161,9 +161,9 @@ def main():
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         overflow: auto;
         background-image: url('https://images5.alphacoders.com/133/1339453.png'); 
-        background-size: 140% auto; /* Change size as needed *
+        background-size: 70% auto; /* Change size as needed *
         background-repeat: no-repeat; /* Adjust as needed */
-        background-position: center -55%; /* Adjust as needed */
+        background-position: center; /* Adjust as needed */
     }
     </style>
     """
