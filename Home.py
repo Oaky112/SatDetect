@@ -147,11 +147,10 @@ def main():
         margin: auto;
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         overflow: auto;
-        background-image: url('https://img.freepik.com/premium-photo/heat-nature-danger-red-wildfire-destruction-wood-fire-environment-disaster-landscape-ecology-night-damage-hot-flames-orange-smoke-burning-wild-forest-tree-background_163305-237718.jpg'); 
+        background-image: url('https://files.123freevectors.com/wp-content/original/125156-red-orange-fire-flame-background.jpg'); 
         background-size: cover; /* Adjust as needed */
         background-repeat: no-repeat; /* Adjust as needed */
         background-position: center; /* Adjust as needed */
-        filter: blur(5px)
     }
     </style>
     """
