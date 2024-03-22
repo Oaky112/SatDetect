@@ -163,7 +163,7 @@ def main():
         background-image: url('https://wallpapers.com/images/hd/galaxy-4k-fire-bgy3bltk7xk43qhn.jpg'); 
         background-size: 120% auto; /* Change size as needed *
         background-repeat: no-repeat; /* Adjust as needed */
-        background-position: center 60%; /* Adjust as needed */
+        background-position: center 15%; /* Adjust as needed */
     }
     </style>
     """
