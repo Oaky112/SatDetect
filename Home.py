@@ -158,7 +158,7 @@ def main():
     st.markdown(custom_css, unsafe_allow_html=True)
 
     # App title
-    st.markdown("<div class='title'><trong>SATELLITE WILDFIRE DETECTION APP</strong></div>", unsafe_allow_html=True)
+    st.markdown("<div class='title'><strong>Satelittle Wildfire Detection App</strong></div>", unsafe_allow_html=True)
     
 
     st.markdown(
