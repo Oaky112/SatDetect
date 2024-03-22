@@ -133,7 +133,7 @@ def main():
 
     /* Button Styling */
     .stButton button {
-        background-color: #4fb2cf;  /* Light blue button background */
+        background-color: #333333; 
         color: #ffffff;  /* White text color */
         border-radius: 5px;
         border: none;
