@@ -210,11 +210,16 @@ def main():
 
     model_files = [f.replace(".pt", "") for f in os.listdir(models_dir) if f.endswith(".pt")]
 
-    selected_model = st.selectbox("Select Model Size", sorted(model_files), index=2)
+    # Check if model_files has at least three elements
+    if len(model_files) >= 3:
+        selected_model = st.selectbox("Select Model Size", sorted(model_files), index=2)
+    else:
+        selected_model = st.selectbox("Select Model Size", sorted(model_files), index=0)  # Set index to 0 or any other suitable default
 
     # Load the selected model
     model_path = os.path.join(models_dir, selected_model + ".pt")
     model = load_model(model_path)
+
 
     # Image selection
     image_source = st.radio("Select image source:", ("Enter URL", "Upload from Computer", "Use Webcam"))
