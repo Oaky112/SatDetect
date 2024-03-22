@@ -65,7 +65,7 @@ def predict_image(model, image, conf_threshold, iou_threshold):
 def main():
     # Set Streamlit page configuration
     st.set_page_config(
-        page_title="Satellite Wildfire Detection ",
+        page_title="Satellite Wildfire Detection App",
         page_icon="🌎",
         initial_sidebar_state="collapsed",
     )
@@ -147,7 +147,7 @@ def main():
         margin: auto;
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         overflow: auto;
-        background-image: url('https://files.123freevectors.com/wp-content/original/125156-red-orange-fire-flame-background.jpg'); 
+        background-image: url('https://img.freepik.com/premium-photo/abstract-color-gradient-background-film-grain-texture-blurred-orange-gray-white-free-forms-black-copy-space_284753-2252.jpg'); 
         background-size: cover; /* Adjust as needed */
         background-repeat: no-repeat; /* Adjust as needed */
         background-position: center; /* Adjust as needed */
@@ -164,7 +164,9 @@ def main():
     st.markdown(
             """
             <div style='text-align: justify;'>
-                <h2><strong>Enhancing wildfire prediction and management through real-time computer vision</strong></h2>
+                <center>
+                <h3><strong>Enhancing wildfire prediction and management through real-time computer vision</strong></h3>
+                </center>
                 <h3>Mission and How it Works</h3>
                 <p>Developed for my 4th year honors project.</p>
                 <p>The app utilizes two key models:</p>
