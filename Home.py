@@ -160,7 +160,7 @@ def main():
         margin: auto;
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         overflow: auto;
-        background-image: url('https://s3.amazonaws.com/content.satimagingcorp.com/static/galleryimages/Brazil-Ortigueira-1m-Microsatellite.jpg'); 
+        background-image: url('https://www.fao.org/fileadmin/user_upload/gfoi/imgs/1_Planet.jpg'); 
         background-size: 120% auto; /* Change size as needed *
         background-repeat: no-repeat; /* Adjust as needed */
         background-position: center -10%; /* Adjust as needed */
