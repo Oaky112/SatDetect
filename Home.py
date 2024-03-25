@@ -164,6 +164,8 @@ def main():
         background-size: 120% auto; /* Change size as needed *
         background-repeat: no-repeat; /* Adjust as needed */
         background-position: center -10%; /* Adjust as needed */
+        background-color: rgba(255, 255, 255, 0.4); /* Opacity set to 40% */
+        background-blend-mode: multiply; /* Blend mode to control opacity */
     }
     </style>
     """
