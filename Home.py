@@ -160,7 +160,7 @@ def main():
         margin: auto;
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         overflow: auto;
-        background-image: url('https://wallpapers.com/images/hd/galaxy-4k-fire-bgy3bltk7xk43qhn.jpg'); 
+        background-image: url('https://s3.amazonaws.com/content.satimagingcorp.com/static/galleryimages/Brazil-Ortigueira-1m-Microsatellite.jpg'); 
         background-size: 120% auto; /* Change size as needed *
         background-repeat: no-repeat; /* Adjust as needed */
         background-position: center -10%; /* Adjust as needed */
