@@ -3,6 +3,7 @@ import cv2
 from ultralytics import YOLO
 import requests  # type: ignore
 from PIL import Image
+import exifread
 import os
 import io
 
